@@ -1,15 +1,15 @@
 package crypto
 
 import (
-	"bt_pay_go/util"
 	"crypto/sha256"
 	"encoding/hex"
+	"github.com/bt-smart/utils"
 )
 
 // GetPasswordAndSalt 获取密码和盐
 func GetPasswordAndSalt(password string) (string, string, error) {
 	// 生成32个字符的盐
-	salt, err := util.GenerateRandomString(32, util.LowercaseCharset)
+	salt, err := utils.GenerateRandomString(32, utils.LowercaseCharset)
 	if err != nil {
 		return "", "", err
 	}
