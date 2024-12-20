@@ -30,3 +30,15 @@ func GetIDFormParam(c *gin.Context) uint64 {
 	}
 	return id
 }
+
+func GetQueryUint64ByString(c *gin.Context, query string) uint64 {
+	str := c.Query(query)
+	if str == "" {
+		return 0
+	}
+	v, err := strconv.ParseUint(str, 10, 64)
+	if err != nil {
+		v = 0
+	}
+	return v
+}

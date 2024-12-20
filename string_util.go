@@ -6,6 +6,9 @@ import (
 	"unicode"
 )
 
+const AllLettersAndDigits = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789" // 大小写字母 + 数字
+const LowercaseCharset = "abcdefghijklmnopqrstuvwxyz0123456789"                              // 小写字母 + 数字
+
 // ValidateString 校验字符串只能包含小写字母或数字，并且长度在[minLength, maxLength]范围内
 func ValidateString(s string, minLength, maxLength int) bool {
 	length := len(s)
@@ -21,8 +24,7 @@ func ValidateString(s string, minLength, maxLength int) bool {
 }
 
 // GenerateRandomString 生成指定长度的随机字符串
-func GenerateRandomString(length int) (string, error) {
-	const charset = "abcdefghijklmnopqrstuvwxyz0123456789"
+func GenerateRandomString(length int, charset string) (string, error) {
 	result := make([]byte, length)
 	maxIdx := big.NewInt(int64(len(charset)))
 	for i := range result {

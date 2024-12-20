@@ -92,3 +92,26 @@ func validatePattern(pattern string) error {
 
 	return nil
 }
+
+// IsValidHTTPSURL 校验字符串是否是合法的 HTTPS 链接，并且不携带参数
+func IsValidHTTPSURL(url string) bool {
+	if url == "" {
+		return false
+	}
+	// 确保 URL 以 "https://" 开头
+	if !strings.HasPrefix(url, "https://") {
+		return false
+	}
+
+	// 检查是否包含参数（'?'）或锚点（'#'）
+	if strings.Contains(url, "?") || strings.Contains(url, "#") {
+		return false
+	}
+
+	// 确保 URL 不为空
+	if len(url) <= len("https://") {
+		return false
+	}
+
+	return true
+}
