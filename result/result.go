@@ -1,9 +1,17 @@
 package result
 
+// Response 通用响应结构
+//
+// swagger:model Response
 type Response struct {
-	Code int    `json:"code"` // 错误码
-	Msg  string `json:"msg"`  // 错误描述
-	Data any    `json:"data"` // 返回数据
+	// 响应码
+	// example: 200
+	Code int `json:"code"`
+	// 响应消息
+	// example: success
+	Msg string `json:"msg"`
+	// 响应数据
+	Data any `json:"data"`
 }
 
 func Ok() *Response {
