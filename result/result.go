@@ -1,14 +1,11 @@
 package result
 
 // Response 通用响应结构
-//
-// swagger:model Response
 type Response struct {
-	// 响应码
-	// example: 200
+	// 错误码
+	// 非0为有错误
 	Code int `json:"code"`
-	// 响应消息
-	// example: success
+	// 错误信息
 	Msg string `json:"msg"`
 	// 响应数据
 	Data any `json:"data"`
